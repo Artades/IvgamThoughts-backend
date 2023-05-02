@@ -1,9 +1,8 @@
-import { Controller, Post, Put, Body, Param, Get } from '@nestjs/common'
+import { Controller, Post, Body, Param, Get } from '@nestjs/common'
 import { PostService } from './posts.service'
 import { PostEntity } from './entities/post.entity'
-import {  ApiTags } from '@nestjs/swagger'
+import { ApiTags } from '@nestjs/swagger'
 import { CreatePostDto } from './dto/create-post.dto'
-import { FindOneOptions } from 'typeorm'
 
 @Controller('posts')
 @ApiTags('posts')
