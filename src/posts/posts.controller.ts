@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Param, Get } from '@nestjs/common'
+import { Controller, Post, Body, Param, Get, Delete } from '@nestjs/common'
 import { PostService } from './posts.service'
 import { PostEntity } from './entities/post.entity'
 import { ApiTags } from '@nestjs/swagger'
@@ -21,5 +21,10 @@ export class PostController {
   @Get(':id')
   async getPostById(@Param('id') id: number): Promise<PostEntity> {
     return this.postService.getPostById(id)
+  }
+
+  @Delete(':id')
+  async deletePostById(@Param('id') id: number): Promise<void> {
+    await this.postService.deletePostById(id)
   }
 }
