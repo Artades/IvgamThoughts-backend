@@ -10,6 +10,8 @@ import { ConfigModule } from '@nestjs/config/dist'
 import { AuthModule } from './auth/auth.module'
 import { PostsModule } from './posts/posts.module'
 import { PostEntity } from './posts/entities/post.entity'
+import { ImagesModule } from './images/images.module';
+import { ImageEntity } from './images/entities/image.entity'
 
 @Module({
   imports: [
@@ -22,11 +24,12 @@ import { PostEntity } from './posts/entities/post.entity'
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [UserEntity, PostEntity],
+      entities: [UserEntity, PostEntity, ImageEntity],
       synchronize: true,
     }),
     AuthModule,
     PostsModule,
+    ImagesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
